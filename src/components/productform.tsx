@@ -92,7 +92,7 @@ export function ProductForm() {
                         <FormItem className="space-y-3">
                             <FormLabel> Discount Code</FormLabel>
                             <FormControl>
-                                <div className="flex space-x-4">
+                                <div className="flex flex-wrap lg:flex-nowrap gap-4">
                                     <Input onChange={field.onChange}
                                         defaultValue={field.value} type="text" placeholder="DISCOUNT CODE" />
                                     <Button type="button" onClick={() => {
