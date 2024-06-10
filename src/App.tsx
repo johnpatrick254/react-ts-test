@@ -1,34 +1,27 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+
+import image from "./assets/studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look.jpg";
+import { ProductForm } from "./components/productform";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="container max-w-7xl px-4 mx-auto flex flex-col items-center justify-center pt-10">
+      <div className="h-[90vh] display flex w-full ">
+
+         <div className="w-[80rem] h-full rounded-md">
+         <img src={image} alt="product image" className="w-full h-full" />
+         </div>
+         <div className="h-full flex flex-col justify-start gap-y-6 px-8 text-left">
+          <div className="space-y-1 w-max">
+          <h1 className="font-bold text-xl tracking-wider">Designer Clad</h1>
+            <p className="italic font-semibold text-sm">Three Piece Dress</p>
+          </div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quis in nam accusamus architecto sint, error molestias cupiditate corrupti consectetur fugit consequatur ipsam. Aliquid, ea est fugiat mollitia velit doloremque?</p>
+          <ProductForm/>
+         </div>
+         <div>
+         </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    </div>
   )
 }
 
