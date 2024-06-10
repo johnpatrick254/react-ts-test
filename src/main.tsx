@@ -7,7 +7,7 @@ import { Provider } from 'react-redux';
 import { store } from './store/store.ts';
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/react-ts-test/",
     element: <App />,
   },
 ]);
