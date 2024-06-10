@@ -9,6 +9,9 @@ import { Input } from "./ui/input"
 import { Textarea } from "./ui/textarea"
 import { generateDiscountCode } from "../lib/utils"
 import { useSearchParams } from "react-router-dom"
+import { selectFilters, setFilters } from "../store/productfilterslice"
+import { useDispatch } from "react-redux"
+import { useAppDispatch, useAppSelector } from "../store/hooks"
 
 
 
@@ -23,15 +26,21 @@ const formSchema = z.object(
 )
 
 export function ProductForm() {
-    const [_searchParams,setSearchParams] = useSearchParams();
-
+    const [_searchParams, setSearchParams] = useSearchParams();
+    const { discount, note, options } = useAppSelector(selectFilters);
+    const dispatch = useAppDispatch()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
+        defaultValues:
+        {
+            discount, note, options
+        }
     })
 
     function onSubmit(data: z.infer<typeof formSchema>) {
-             const params = formSchema.parse(data);
-             setSearchParams(params)
+        const params = formSchema.parse(data);
+        dispatch(setFilters(params))
+        setSearchParams(params)
     }
 
     return (
@@ -86,8 +95,8 @@ export function ProductForm() {
                             <FormControl>
                                 <div className="flex space-x-4">
                                     <Input onChange={field.onChange}
-                                        defaultValue={field.value} type="text"  placeholder="DISCOUNT CODE" />
-                                    <Button type="button" onClick={()=>{
+                                        defaultValue={field.value} type="text" placeholder="DISCOUNT CODE" />
+                                    <Button type="button" onClick={() => {
                                         const newCode = generateDiscountCode();
                                         form.setValue('discount', newCode);
                                         form.trigger('discount');
