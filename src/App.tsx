@@ -5,7 +5,7 @@ import { ProductForm } from "./components/productform";
 function App() {
   return (
     <div className="container max-w-7xl px-4 mx-auto flex flex-col items-center justify-center pt-10">
-      <div className="h-[90vh] display flex w-full ">
+      <div className="h-[90vh] display flex flex-wrap gap-y-5 md:flex-nowrap w-full ">
 
          <div className="w-[80rem] h-full rounded-md">
          <img src={image} alt="product image" className="w-full h-full" />
