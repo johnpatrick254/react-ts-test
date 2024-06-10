@@ -10,7 +10,6 @@ import { Textarea } from "./ui/textarea"
 import { generateDiscountCode } from "../lib/utils"
 import { useSearchParams } from "react-router-dom"
 import { selectFilters, setFilters } from "../store/productfilterslice"
-import { useDispatch } from "react-redux"
 import { useAppDispatch, useAppSelector } from "../store/hooks"
 
 
